@@ -11,11 +11,14 @@ const defaultState = {};
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, defaultState, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  rootReducer,
+  defaultState,
+  applyMiddleware(sagaMiddleware)
+);
 
 sagaMiddleware.run(mySaga);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store;
-
